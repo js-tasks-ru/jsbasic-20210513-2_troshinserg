@@ -74,6 +74,7 @@ export default class StepSlider {
     }
   }
 
+
   setStepsPercents = () => {
     const percents = [];
     for(let i = 0; i < this.config.steps; i++) {
