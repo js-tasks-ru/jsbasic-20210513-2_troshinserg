@@ -49,7 +49,9 @@ export default class Modal {
 
   close = () => {
     document.body.classList.remove(this.ModalClass.OPENED);
-    document.querySelector(`.${this.ModalClass.MAIN}`).remove();
+    //document.querySelector(`.${this.ModalClass.MAIN}`).remove();
+    this.elem.remove();
+    document.removeEventListener('keydown', this.onKeydown);
   }
 
   setTitle = (title) => {
