@@ -39,10 +39,16 @@ export default class Cart {
   }
 
   getTotalCount() {
+    if (!this.cartItems.length) {
+      return 0;
+    }
     return this.cartItems.map(it => it.count).reduce((accumulator, current) => accumulator + current);
   }
 
   getTotalPrice() {
+    if (!this.cartItems.length) {
+      return 0;
+    }
     return this.cartItems.map(it => it.product.price * it.count).reduce((accumulator, current) => accumulator + current);
   }
 
