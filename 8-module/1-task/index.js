@@ -39,8 +39,13 @@ export default class CartIcon {
   }
 
   updatePosition() {
-    const isMobile = document.documentElement.clientWidth <= 767;
     const isVisible = this.elem.offsetWidth && this.elem.offsetHeight;
+
+    if (!isVisible) {
+      return;
+    }
+
+    const isMobile = document.documentElement.clientWidth <= 767;
 
     const ElemIndent = {
       LEFT: 20,
@@ -48,7 +53,7 @@ export default class CartIcon {
     };
 
     const scroll = document.documentElement.scrollTop;
-    const container = document.body.firstElementChild;
+    const container = document.body.querySelector('.container');
     const isEnough = container.offsetLeft > ElemIndent.LEFT + ElemIndent.RIGHT + this.elem.offsetWidth;
     const indent = isEnough ? ElemIndent.LEFT : container.offsetLeft - this.elem.offsetWidth - ElemIndent.RIGHT;
 

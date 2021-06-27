@@ -157,6 +157,7 @@ export default class Cart {
       }
 
       if (cartItem.count < 1 && this.cartItems.length === 1) {
+        this.cartItems = [];
         this.modal.close()
       }
 
