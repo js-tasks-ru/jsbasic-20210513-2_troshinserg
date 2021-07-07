@@ -1,8 +1,9 @@
 export default class StepSlider {
-  constructor({ steps, value = 0 }) {
+  constructor({ steps, value}) {
     this.config = arguments[0];
+    const isValue = this.config.value !== undefined;
 
-    if (!(value in this.config)) {
+    if (!isValue) {
       this.config.value = 0;
     }
 
@@ -33,12 +34,12 @@ export default class StepSlider {
 
   render() {
     let steps = '';
-    const progressPercent = (100 / this.config.steps - 1) * this.config.value;
+    const progressPercent = (100 / (this.config.steps - 1)) * this.config.value;
     for(let i = 0; i < this.config.steps; i++) {
       steps += i === this.config.value ? `<span class="${this.SliderClass.STEP_ACTIVE}" data-id="${i}"></span>` : `<span data-id="${i}"></span>`;
     }
     this.elem.innerHTML = `
-    <div class="slider__thumb">
+    <div class="slider__thumb" style="left: ${progressPercent}%">
       <span class="slider__value">${this.config.value}</span>
     </div>
 

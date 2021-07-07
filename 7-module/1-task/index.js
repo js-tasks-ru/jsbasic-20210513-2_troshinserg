@@ -23,9 +23,6 @@ export default class RibbonMenu {
     this.nextBtn = this.elem.querySelector(`.${this.RibbonClass.ARROW_RIGHT}`);
     this.links = this.elem.querySelectorAll(`.${this.RibbonClass.ITEM}`);
 
-    //Почему this.scrollMax равен 0?
-    //this.maxScroll = this.wrapper.scrollWidth - this.wrapper.clientWidth;
-
     this.elem.addEventListener('click', this.onNavBtnClick);
     this.elem.addEventListener('click', this.onCategoryLinkClick);
     this.wrapper.addEventListener('scroll', this.changeBtnState);
